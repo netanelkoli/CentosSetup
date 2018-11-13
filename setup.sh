@@ -30,7 +30,7 @@ if [[ "$1" == "--virtual" ]] ; then
 	echo "Did the media is plugged in?.....  yes/no"
 	read var
 	if [[ "$var" == "yes" ]]; then
-		continue 
+		echo "Will setup Virtualbox tools" 
 	elif [[ "$var" == "no" ]]; then
 		echo "Aboring install of virtual box tools"
 		exit 
