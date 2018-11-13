@@ -17,6 +17,8 @@ echo&&echo&&echo
 yum -y update
 
 #Remove older kernels
+echo "Removing older Kernels"
+sleep 1
 package-cleanup --oldkernels --count=1
 
 #Install Virtual Box Tools
@@ -46,7 +48,14 @@ if [[ "$1" == "--virtual" ]] ; then
 	./VBoxLinuxAdditions.run
 fi
 
+#Install Google Chrome
+echo "Install chrome"
+sleep 1
+cp ./google-chrome.repo /etc/yum.repos.d/
+yum info google-chrome-stable
+yum -y install google-chrome-stable
 
+#reboot
 echo "rebooting"
 reboot	
 	
