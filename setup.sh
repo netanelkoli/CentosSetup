@@ -39,7 +39,7 @@ if [[ "$1" == "--virtual" ]] ; then
 		exit
 	fi
 	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-	yum install perl gcc dkms kernel-devel kernel-headers make bzip2
+	yum -y install perl gcc dkms kernel-devel kernel-headers make bzip2
 	mkdir /media/VirtualBoxGuestAdditions
 	mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
 	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
