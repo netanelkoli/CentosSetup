@@ -53,7 +53,7 @@ echo "Install chrome"
 sleep 1
 cp ./google-chrome.repo /etc/yum.repos.d/
 yum info google-chrome-stable
-yum -y install google-chrome-stable
+yum -y install google-chrome-stable epel-release byobu
 
 #reboot
 echo "rebooting"
