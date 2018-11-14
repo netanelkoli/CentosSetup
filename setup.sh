@@ -15,7 +15,7 @@ fi
 echo "Updateing the system"
 echo&&echo&&echo 
 yum -y update
-
+yum -y install bash-completion bash-completion-extras
 #Remove older kernels
 echo "Removing older Kernels"
 sleep 1
@@ -30,7 +30,7 @@ if [[ "$1" == "--virtual" ]] ; then
 	echo "Did the media is plugged in?.....  yes/no"
 	read var
 	if [[ "$var" == "yes" ]]; then
-		continue 
+		echo "Will setup Virtualbox tools" 
 	elif [[ "$var" == "no" ]]; then
 		echo "Aboring install of virtual box tools"
 		exit 
@@ -39,7 +39,7 @@ if [[ "$1" == "--virtual" ]] ; then
 		exit
 	fi
 	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-	yum install perl gcc dkms kernel-devel kernel-headers make bzip2
+	yum -y install perl gcc dkms kernel-devel kernel-headers make bzip2
 	mkdir /media/VirtualBoxGuestAdditions
 	mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
 	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
