@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sudo -i
 
 #First, check if an active network connection exists
 
