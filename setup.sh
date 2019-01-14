@@ -14,7 +14,7 @@ fi
 echo "Updateing the system"
 echo&&echo&&echo 
 yum -y update
-yum -y install bash-completion bash-completion-extras yum-utils curl wget vim epel-release
+yum -y install bash-completion bash-completion-extras yum-utils curl wget vim epel-release unzip
 #Remove older kernels
 echo "Removing older Kernels"
 sleep 1
