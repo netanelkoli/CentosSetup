@@ -14,7 +14,7 @@ fi
 echo "Updateing the system"
 echo&&echo&&echo 
 yum -y update
-yum -y install bash-completion bash-completion-extras yum-utils curl wget vim epel-release unzip
+yum -y install bash-completion bash-completion-extras yum-utils curl wget vim epel-release unzip  byobu
 #Remove older kernels
 echo "Removing older Kernels"
 sleep 1
@@ -48,11 +48,13 @@ if [[ "$1" == "--virtual" ]] ; then
 fi
 
 #Install Google Chrome
+set +e #Do not exit if error occurs
 echo "Install chrome"
 sleep 1
 cp -n ./google-chrome.repo /etc/yum.repos.d/
 yum info google-chrome-stable
-yum -y install google-chrome-stable byobu
+yum -y install google-chrome-stable
+set -e
 
 #reboot
 echo "rebooting"
