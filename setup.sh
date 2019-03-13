@@ -14,7 +14,9 @@ fi
 echo "Updateing the system"
 echo&&echo&&echo 
 yum -y update
-yum -y install bash-completion bash-completion-extras yum-utils curl wget vim epel-release unzip  byobu
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum -y install epel-release
+yum -y install bash-completion bash-completion-extras yum-utils curl wget vim unzip  byobu
 #Remove older kernels
 echo "Removing older Kernels"
 sleep 1
@@ -41,7 +43,6 @@ if [[ "$1" == "--virtual" ]] ; then
 	yum -y install perl gcc dkms kernel-devel kernel-headers make bzip2
 	mkdir /media/VirtualBoxGuestAdditions
 	mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
-	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 	KERN_DIR=/usr/src/kernels/`uname -r`/build
 	cd /media/VirtualBoxGuestAdditions
 	./VBoxLinuxAdditions.run
